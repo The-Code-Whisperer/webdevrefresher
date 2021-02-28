@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms Demo</title>
+</head>
+<body>
+    <h1>Forms Demo</h1>
+
+    <form action="/tacos">
+        <p>
+            <label for="username">Enter a Username:</label>
+            <input type="text" id="username" placeholder="username" name="username">
+        </p>
+        <p>
+            <!-- Name of Data -->
+            <label for="password">Enter a Password:</label>
+            <input type="password" placeholder="password" name="password">
+        </p>
+
+        <p>
+            <label for="color">Enter a Color:</label>
+            <input type="color" name="color">
+        </p>
+        <p>
+            <label for="number">Enter a Number:</label>
+
+            <input type="number" placeholder="number" name="number">
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+
+    next form
+    <h2>Hijacking searches</h2>
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search/">
+        <label for="query">Enter a search</label>
+        <input name="q" placeholder="Search">
+        <button type="submit">Submit</button>
+    </form>
+    <h3>Search Google</h3>
+
+    <form action="https://www.google.com/search">
+        <label for="query">Enter a search</label>
+        <input name="q" placeholder="Search">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h3>Search Youtube</h3>
+
+    <form action="https://www.youtube.com/results">
+        <label for="query">Enter a search</label>
+        <input name="search_query" placeholder="Search">
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>More Inputs!</h2>
+    <form action="/birds">
+    
+        <input id="check" name="agree_tos" type="checkbox">
+        <label for="check">I agree to everything</label>
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>
