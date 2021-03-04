@@ -5,25 +5,27 @@ while (!max) {
 
 }
 
-const targetNum = Math.floor(Math.random() * max) + 1
+let targetNum = Math.floor(Math.random() * max) + 1
+
+console.log(targetNum)
 
 let guess = prompt("Enter your first guess");
 
-console.log(guesss)
-
 let attempts = 1;
 
-while (guess !== targetNum) {
+while (+guess !== targetNum) {
     if (guess=='q') {
         break;
     }
-    console.log('wtf')
     attempts++;
-    if (guess > targetNum) {
+    if (+guess > targetNum) {
         guess = prompt("too high guess again");
     } else {
         guess = prompt("too low guess again");
     }
 
 }
-console.log(`you got it. took you ${attempts} guesses`);
+
+if (guess === 'q') console.log("ok you quit") 
+else console.log(`you got it. took you ${attempts} guesses`);
+
