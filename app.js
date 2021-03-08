@@ -25,7 +25,7 @@ function changeScore(player) {
     player.score += 1;
     player.display.innerHTML = player.score;
     if (player.score == maxscore) {
-        for (player of playerList) {
+        for (let player of playerList) {
             player.button.disabled = true;
             player.display.classList.add('has-text-danger');
         }
