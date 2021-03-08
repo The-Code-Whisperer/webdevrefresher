@@ -2,7 +2,6 @@
 
 <head>
     <title>Grocery List</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 
 </head>
@@ -12,53 +11,37 @@
         <div class="column is-half is-offset-one-quarter">
             <div class="card">
                 <header class="card-header">
-                  <p class="card-header-title">
-                    Ping Pong Score Keeper
-                  </p>
+                    <p class="card-header-title">
+                        Ping Pong Score Keeper
+                    </p>
 
                 </header>
                 <div class="card-content">
-                  <div class="content">
-                    <h1 class="title is-1"><span id="playerb">0</span> to <span id="playera">0</span></h1>
-                    <p class="subtitle">Use the buttons below to keep score</p>
-                    
-                    <label for="playto" class="label is-large is-inline">Play to</label>
-                    <div id="playto" class="select is-rounded">
-                        
-                        <select id="maxscore">
-                          <option>3</option>
-                          <option>4</option>
-                          <option selected>5</option>
-                          <option>6</option>
-                        </select>
-                      </div>
-                  </div>
+                    <div class="content">
+                        <h1 class="title is-1"><span id="playera">0</span> to <span id="playerb">0</span></h1>
+                        <p class="subtitle">Use the buttons below to keep score</p>
+
+                        <label for="playto" class="label is-large is-inline">Play to</label>
+                        <div id="playto" class="select is-rounded">
+
+                            <select id="maxscore">
+                                <option>3</option>
+                                <option>4</option>
+                                <option selected>5</option>
+                                <option>6</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
                 <footer class="card-footer">
-                    <button id="b" class="is-primary button card-footer-item">+1 Player One</button>
-                    <button id="a" class="is-info button card-footer-item">+1 Player Two</button>
-                    <button id="reset" class="is-danger button card-footer-item">Reset</button>
+                    <button id="a" class="is-primary button card-footer-item is-large">+1 Player One</button>
+                    <button id="b" class="is-info button card-footer-item is-large">+1 Player Two</button>
+                    <button id="reset" class="is-danger button card-footer-item is-large">Reset</button>
 
                 </footer>
-              </div>
+            </div>
         </div>
     </div>
-
-
-
-    Ping Pong Score
-    <h1><span id="playerb">0</span> to <span id="playera">0</span></h1>
-    User the buttons below to keep score
-    <button id="b">b</button>
-    <button id="a">a</button>
-    Playing to <select name="maxscore" id="maxscore">
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option selected value="5">5</option>
-        <option value="6">6</option>
-    </select>
-    <button id="reset">reset</button>
     <script src="app.js"></script>
-</body>
 
-</html>
+</body>
