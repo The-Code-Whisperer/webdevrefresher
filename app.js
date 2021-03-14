@@ -1,35 +1,18 @@
-function delayedColorChange(color, time) {
-    return new Promise((res, rej) => {
-        setTimeout(() => {
-            document.body.style.backgroundColor = color;
-            rej();
-        }, time);
-    })
+const req = new XMLHttpRequest();
+
+req.onload = function() {
+    console.log("all done with request");
+    let data = JSON.parse(this.responseText);
+    console.log(data.ticker.price);
 }
 
-
-// delayedColorChange('red', 1000)
-//     .then(function() { return delayedColorChange('blue', 1000) })
-//     .then(function() { return delayedColorChange('orange', 1000) })
-//     .then(function() { return delayedColorChange('yellow', 1000) })
-//     .then(function() { delayedColorChange('blue', 1000) });
-
-async function rainbow() {
-    await delayedColorChange('purple', 700);
-    await delayedColorChange('orange', 700);
-    await delayedColorChange('blue', 700);
-    await delayedColorChange('violet', 700);
-    return "all done?";
+req.onerror = function () {
+    console.log("error!");
+    console.log(this);
 }
 
-async function printRainbow() {
-    let result = await rainbow();
-    console.log(result)
-    try {
+req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd');
+req.send();
 
-    } catch (e) {
-        
-    }
-}
 
-printRainbow();
+// XMLhttprequests suck.
