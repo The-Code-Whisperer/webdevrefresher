@@ -1,18 +1,25 @@
-const req = new XMLHttpRequest();
 
-req.onload = function() {
-    console.log("all done with request");
-    let data = JSON.parse(this.responseText);
-    console.log(data.ticker.price);
+
+
+// fetch using callbacks
+
+// fetch('https://api.cryptonator.com/api/ticker/btc-usd')
+//     .then(res => {
+//         console.log("Response, waiting to parse...", res);
+//         return res.json();
+//     })
+//     .then(data => {
+//         console.log("DATA PARSED...", data.ticker.price);
+//     })
+//     .catch(e => {
+//         console.log("OH NO! ERROR!", e);
+//     })
+
+
+// fetch using async await
+
+const fetchBitcoinPrice = async () => {
+     const res = await fetch("https://api.cryptonator.com/api/ticker/btc-usd");
+     console.log(res);
 }
-
-req.onerror = function () {
-    console.log("error!");
-    console.log(this);
-}
-
-req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd');
-req.send();
-
-
-// XMLhttprequests suck.
+fetchBitcoinPrice();
