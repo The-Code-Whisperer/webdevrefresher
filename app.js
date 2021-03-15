@@ -15,4 +15,4 @@ req.open('GET', 'https://api.cryptonator.com/api/ticker/btc-usd');
 req.send();
 
 
-// XMLhttprequests suck.
+// XMLhttprequests suck because they have all this up time but on the other hand you won't need to use fetch which requires a chain of 2 promises since the first one returns quickly preloaded info.
