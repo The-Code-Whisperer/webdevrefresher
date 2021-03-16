@@ -1,32 +1,25 @@
-// turn fetch's double promise then model into onto one promise with axios library.
 
 
-// axios.get('https://api.cryptonator.com/api/ticker/btc-usd')
-//     .then(data => { console.log(data.data.ticker.price) })
-//     .catch(e => console.log(e));
 
+const form = document.querySelector('form');
 
-const getBitcoinPrice = async() => {
-    try {
-        const result = await axios.get("https://api.cryptonator.com/api/ticker/btc-usd");
-        console.log(result.data.ticker.price);
-    } catch {
-        console.log("error")
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const shows = await getTVShows(form.elements.query.value);
+    document.querySelectorAll('img').forEach(node => node.remove());
+    for (let show of shows) {
+        if (show.show.image) {
+            const img = document.createElement('img');
+            img.src = show.show.image.medium;
+            document.body.append(img);
+        }
     }
+    form.elements.query.value = '';
 
+});
+
+async function getTVShows(searchTerm) {
+    const config = {'params': {'q': searchTerm}}
+    const data = await axios.get('http://api.tvmaze.com/search/shows', config);
+    return data.data;
 }
-
-let jokes = document.querySelector("#jokes");
-
-const getDadJoke = async() => {
-    const config = {
-        headers: { Accept: 'application/json' }
-    }
-    const res = await axios.get('https://icanhazdadjoke.com/', config);
-    return res.data.joke;
-}
-
-
-document.querySelector("#getJoke").addEventListener("click", function () {
-    getDadJoke();
-})
