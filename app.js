@@ -1,25 +1,32 @@
+// turn fetch's double promise then model into onto one promise with axios library.
 
 
-
-// fetch using callbacks
-
-// fetch('https://api.cryptonator.com/api/ticker/btc-usd')
-//     .then(res => {
-//         console.log("Response, waiting to parse...", res);
-//         return res.json();
-//     })
-//     .then(data => {
-//         console.log("DATA PARSED...", data.ticker.price);
-//     })
-//     .catch(e => {
-//         console.log("OH NO! ERROR!", e);
-//     })
+// axios.get('https://api.cryptonator.com/api/ticker/btc-usd')
+//     .then(data => { console.log(data.data.ticker.price) })
+//     .catch(e => console.log(e));
 
 
-// fetch using async await
+const getBitcoinPrice = async() => {
+    try {
+        const result = await axios.get("https://api.cryptonator.com/api/ticker/btc-usd");
+        console.log(result.data.ticker.price);
+    } catch {
+        console.log("error")
+    }
 
-const fetchBitcoinPrice = async () => {
-     const res = await fetch("https://api.cryptonator.com/api/ticker/btc-usd");
-     console.log(res);
 }
-fetchBitcoinPrice();
+
+let jokes = document.querySelector("#jokes");
+
+const getDadJoke = async() => {
+    const config = {
+        headers: { Accept: 'application/json' }
+    }
+    const res = await axios.get('https://icanhazdadjoke.com/', config);
+    return res.data.joke;
+}
+
+
+document.querySelector("#getJoke").addEventListener("click", function () {
+    getDadJoke();
+})
